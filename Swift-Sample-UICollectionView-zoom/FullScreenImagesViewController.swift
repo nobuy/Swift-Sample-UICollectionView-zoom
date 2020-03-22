@@ -173,7 +173,7 @@ extension FullScreenImagesViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - FullScreenImageViewCellDelegate
 
 extension FullScreenImagesViewController: FullScreenImageViewCellDelegate {
-    func scrollViewDidZoom(_ cell: FullScreenImageViewCell, zoomScale: CGFloat) {
+    func scrollViewDidEndZooming(_ cell: FullScreenImageViewCell, zoomScale: CGFloat) {
         isFooterHidden = zoomScale != 1.0
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FullScreenImageViewCellDelegate: class {
-    func scrollViewDidZoom(_ cell: FullScreenImageViewCell, zoomScale: CGFloat)
+    func scrollViewDidEndZooming(_ cell: FullScreenImageViewCell, zoomScale: CGFloat)
 }
 
 class FullScreenImageViewCell: UICollectionViewCell {
@@ -89,6 +89,10 @@ extension FullScreenImageViewCell: UIScrollViewDelegate {
 
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         updateScrollViewContentInsets()
-        delegate?.scrollViewDidZoom(self, zoomScale: scrollView.zoomScale)
+    }
+
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        updateScrollViewContentInsets()
+        delegate?.scrollViewDidEndZooming(self, zoomScale: scale)
     }
 }
