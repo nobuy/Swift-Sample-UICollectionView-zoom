@@ -55,7 +55,7 @@ class FullScreenImageViewCell: UICollectionViewCell {
             let widthScale = scrollView.frame.width / size.width
             let heightScale = scrollView.frame.height / size.height
             let scale = min(widthScale, heightScale, 1.0)
-            imageView.frame.size = CGSize(width: size.width * scale, height: size.height * scale)
+            imageView.frame.size = CGSize(width: size.width * scale * scrollView.zoomScale, height: size.height * scale * scrollView.zoomScale)
             scrollView.contentSize = imageView.frame.size
             updateScrollViewContentInsets()
         }
